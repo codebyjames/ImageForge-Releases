@@ -1,0 +1,114 @@
+ImageForge — Terms of Use
+=========================
+
+Last updated: 2026-09-03
+
+ImageForge is free software provided under the MIT License (see LICENSE.txt).
+This document is not a second licence and does not add conditions to it. It
+exists because the MIT License covers the SOFTWARE, and the software is not
+the only thing involved in making an image.
+
+
+1. NO WARRANTY, AND NO LIABILITY
+--------------------------------
+
+This is stated in the MIT License and repeated here because it is the part
+people actually need to read:
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    OR IMPLIED. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM,
+    DAMAGES OR OTHER LIABILITY ARISING FROM THE SOFTWARE OR ITS USE.
+
+ImageForge runs entirely on your own computer. The author does not operate a
+service, does not receive your prompts or your images, and has no ability to
+see, moderate, or remove anything you make with it. What you generate, and
+what you then do with it, is yours and is your responsibility.
+
+
+2. THE MODEL WEIGHTS ARE NOT PART OF THIS SOFTWARE
+--------------------------------------------------
+
+ImageForge ships no model weights. When you install the engine or choose a
+model, the app downloads those weights directly from their publishers —
+Stability AI, Black Forest Labs, and others — to your machine.
+
+Your use of those weights is governed by THEIR licences, between you and
+them. Some permit commercial use, some permit it only below a revenue
+threshold, and at least one forbids it outright. They also carry use
+restrictions of their own.
+
+The app's System screen has a Licences panel listing what each model
+permits, with a link to the full text of each licence. Read it before you
+publish or sell anything you generate. It is a summary written in good faith
+and checked against the publishers, not legal advice, and not a substitute
+for the licence itself.
+
+Two things that panel cannot cover, and you should know about:
+
+  * Models you pull through Discover. Those come from anywhere on
+    HuggingFace. Check the licence on the model's own page.
+  * LoRAs you train or download. Nobody publishes terms for those. What you
+    may do with the output depends on the images it was trained on, which
+    only you know.
+
+
+3. ACCEPTABLE USE
+-----------------
+
+The model licences behind this app — CreativeML OpenRAIL-M and OpenRAIL++
+among them — carry use restrictions, and those restrictions travel to you as
+a user of the weights. They are not this author's rules; they are the
+publishers'. In substance, you may not use these models, or this app, to
+generate or distribute content that:
+
+  * sexualises children, in any form or depiction;
+  * is created to harass, defame, threaten, or impersonate a real person,
+    including sexual imagery of a real person made without their consent;
+  * is presented as a genuine photograph or record of something that did not
+    happen, in order to deceive;
+  * incites violence or hatred against people on the basis of who they are;
+  * provides instructions for seriously harming people;
+  * violates any law that applies to you.
+
+Read the licence linked beside each model for the authoritative wording. If
+you disagree with these restrictions, the remedy is to not use the models —
+not to use them anyway.
+
+
+4. THE CONTENT FILTER
+---------------------
+
+Stable Diffusion and SDXL models ship with an NSFW safety checker, and
+ImageForge leaves it ON by default.
+
+It can be switched off by setting IMAGEFORGE_DISABLE_SAFETY_CHECKER=1. That
+is a deliberate act. Turning it off does not change anything in section 3:
+the restrictions come from the model licences, not from the filter, and
+removing a filter does not remove a term.
+
+The filter is imperfect in both directions. It misses things and it flags
+harmless images. It is a safeguard, not a guarantee, and it is not a reason
+to publish something without looking at it.
+
+
+5. WHAT LEAVES YOUR MACHINE
+---------------------------
+
+Nothing, unless you ask for it. Specifically:
+
+  * No telemetry, no analytics, no crash reporting.
+  * Nothing is sent at startup.
+  * Downloading the engine or a model contacts HuggingFace, because that is
+    where the files are.
+  * The Discover screen searches HuggingFace when you search.
+  * The update check contacts GitHub, only when you press it, and sends
+    nothing but the request itself.
+  * If you configure RunPod for cloud rendering, your prompts and images go
+    to RunPod under their terms, with your own API key.
+
+
+6. QUESTIONS
+------------
+
+The project lives at https://github.com/codebyjames/ImageForge-Releases —
+issues and questions are welcome there.
