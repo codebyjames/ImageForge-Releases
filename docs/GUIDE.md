@@ -106,13 +106,30 @@ Teach the app a subject — a person, a pet, an object — or a style, by showin
 it examples. The result is a **LoRA adapter**: a small file that plugs into an
 existing model rather than a whole new model.
 
-The short version:
+**Read this part first: ImageForge does not include the trainer.** It
+prepares everything a training run needs — it imports your photos, captions
+them for you, checks them for problems, and writes the configuration — and
+then the run itself is performed by **kohya sd-scripts**, which is a separate
+project you install yourself. If you have not installed it, the job finishes
+with *"config written — no adapter was trained"* and tells you so. It does not
+pretend to have made one.
+
+What the app does for you:
 
 1. Put 15–30 photos of the subject in a folder. Varied angles and lighting;
    consistent subject.
-2. **Train** → point it at the folder. It captions the images for you.
-3. Start the run. It takes hours on a consumer card and reports progress.
-4. The adapter appears in **Library** and in the Generate sidebar.
+2. **Train** → point it at the folder. It captions every image, checks the
+   set for problems (images too small, inconsistent aspect ratios) and says
+   what it found.
+3. Start the run. It writes the training config, the dataset layout and the
+   sample prompts alongside your images.
+
+What you do:
+
+4. Install kohya sd-scripts into `~/sd-scripts`. With it present on an NVIDIA
+   machine, step 3 launches the run instead of stopping at the config — it
+   takes hours on a consumer card — and the adapter then appears in
+   **Library** and in the Generate sidebar.
 
 **Two honest warnings.** Training needs a lot of graphics memory and a lot of
 time. And what you may do with the output depends on the images you trained
