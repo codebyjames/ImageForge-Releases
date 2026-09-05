@@ -252,8 +252,6 @@ just an honest comparison that always recommends your own machine.
 
 ![The System screen](system-web.png)
 
-*The blurred patches are the readings that differ from machine to machine — the graphics card, its memory, the Windows build, free disk. Everything else on this screen is identical for everyone who downloads it.*
-
 Four things live here.
 
 **The engine** — install it, see its version, remove it.

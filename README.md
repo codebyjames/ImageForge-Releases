@@ -107,8 +107,6 @@ it. Both are local only.
 
 ![The System screen](docs/system-web.png)
 
-*The blurred patches are the readings that differ from machine to machine — the graphics card, its memory, the Windows build, free disk. Everything else on this screen is identical for everyone who downloads it.*
-
 **The app is MIT — the models are not.** ImageForge ships no model weights; it
 downloads them from their publishers to your machine, and *their* licences
 govern what you may do with what you generate. They differ, and not in the way
