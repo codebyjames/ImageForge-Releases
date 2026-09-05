@@ -9,9 +9,11 @@ sent anywhere unless you ask for it.
 | [Generate](#generate) | Making a picture, and what the controls actually do |
 | [Choosing a model](#choosing-a-model) | Thirteen of them; which to use for what |
 | [Gallery](#gallery) | Everything you have made, and the settings that made it |
+| [Library](#library) | Your trained adapters, and how to use one |
 | [Train](#train) | Teaching it your own subject or style |
 | [Discover](#discover) | Getting more models |
 | [Agents and the API](#agents-and-the-api) | Driving it from Claude, or from code |
+| [Compute](#compute) | Render here, or rent a bigger card |
 | [System](#system) | The engine, licences, and what is allowed |
 | [Where your files live](#where-your-files-live) | And what an uninstall does not touch |
 
@@ -46,8 +48,9 @@ light" works better than a list of keywords. The row underneath offers
 Portrait photo, Full body, Scenery, Product, Illustration — which set sensible
 sizes and step counts for that kind of picture.
 
-**Shape** — Portrait, Square, Landscape. Square is best for faces and product
-shots; landscape for scenes.
+**Shape** — Portrait 832×1216, Square 1024×1024, Landscape 1216×832. These
+are SDXL's own native sizes; square is best for faces and product shots,
+landscape for scenes.
 
 **Quality** — *Quick look* is a draft; *Finished* takes longer and resolves
 skin, fabric and edges. The button tells you roughly how long, measured for
@@ -63,6 +66,11 @@ your machine rather than guessed.
   exactly, re-roll it for a different take on the same prompt.
 - **Hand the last of it to a second model (refiner)** — an SDXL-only extra
   pass for final polish.
+
+**Your LoRAs**, also on the right, lists the adapters you have trained. A
+subject adapter needs its trigger phrase in the prompt to do anything, so
+switching one on shows the phrase and a **+** button that adds it for you —
+and warns you while it is missing.
 
 **The first render of a session is slow** — several seconds to half a minute —
 because the model has to load into the graphics card. Every render after that
@@ -100,7 +108,28 @@ Filter by model, by adapter, by date. Search your own prompts.
 
 ---
 
+## Library
+
+![The Library](library-web.png)
+
+Every adapter you have trained, with what it is for and how to use it.
+
+Each card names the base model it was trained against, its size, how many
+steps it ran for, and — for a subject adapter — the **trigger phrase** to put
+in your prompt. Filter by Subjects or Styles, search by name or tag, and tag
+them yourself.
+
+**Training saves checkpoints along the way**, and they all appear here:
+`_lora-step00000200`, `-step00000400`, and so on. That is deliberate. More
+steps is not automatically better — an adapter often gets sharper and then
+starts overcooking, and the only way to know which one you liked is to try
+two. **Use in a render** arms one on the Generate screen.
+
+---
+
 ## Train
+
+![The Train screen](train-web.png)
 
 Teach the app a subject — a person, a pet, an object — or a style, by showing
 it examples. The result is a **LoRA adapter**: a small file that plugs into an
@@ -154,6 +183,8 @@ own terms; check the model's own page.
 
 ## Agents and the API
 
+![The Agents screen](agents-web.png)
+
 ImageForge is also an **MCP server**, so Claude, Cursor or any MCP client can
 generate images through it.
 
@@ -177,8 +208,10 @@ Seven tools are exposed:
 commercial can see that SDXL-Turbo forbids it.
 
 There is also an **HTTP API** on `127.0.0.1:8765` with the same engine behind
-it. The **API** screen shows ready-made `curl` and Python snippets and can
-create a key.
+it. The **API** screen shows ready-made `curl` and Python snippets, can create
+a key, and has a console for trying any endpoint without leaving the app.
+
+![The API screen](api-web.png)
 
 Both are local only. Nothing listens on the network.
 
@@ -197,6 +230,24 @@ Both are local only. Nothing listens on the network.
 
 ---
 
+## Compute
+
+![Compute](compute-web.png)
+
+Whether a job should run on the card in this machine, or on one you rent by
+the minute.
+
+It answers with the same question for every job: how long here, how much
+here, and does it fit in this card's memory — against the same three for a
+rented pod, including the minutes the pod spends starting up. Renting is
+rarely worth it for a single render and often worth it for a long training
+run.
+
+Nothing is rented without a RunPod API key, and without one this screen is
+just an honest comparison that always recommends your own machine.
+
+---
+
 ## System
 
 ![The System screen](system-web.png)
@@ -209,7 +260,8 @@ Four things live here.
 
 **Run the checks** — fourteen of them: graphics card, CUDA, disk, dependencies,
 optional keys. They report consequences rather than demands: *"No HF_TOKEN —
-gated models cannot be pulled"*, not "missing required token".
+gated models cannot be pulled"*, not "missing required token". Anything that
+needs your attention also appears on the **Agents** screen as it happens.
 
 **Licences** — what you may do with the pictures. The app is MIT; the models
 are not, and they differ:
