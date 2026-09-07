@@ -9,6 +9,14 @@ you ask for it.
 *Installer (47 MB) or portable zip (57 MB) · Windows 10/11, 64-bit · free and
 [MIT licensed](LICENSE)*
 
+### See it running
+
+https://github.com/user-attachments/assets/193cc798-3c92-4ed5-9b41-a348e9923d6b
+
+*21 seconds, no narration: a prompt typed live, the render on a local GPU,
+the gallery, and the API an agent calls. Every picture in it was made by
+ImageForge on an RTX 3060.*
+
 ![The Generate screen](docs/generate-web.png)
 
 ---
